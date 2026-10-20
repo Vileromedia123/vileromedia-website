@@ -2,6 +2,8 @@ import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Socials, { socials } from "@/components/Socials";
 import { EMAIL, HOURS, SITE_URL } from "@/lib/site";
+import { posts } from "@/lib/posts";
+import Link from "next/link";
 
 // Free Unsplash photos (Unsplash License). Swap for our own crew photos when we have them.
 const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70`;
@@ -602,6 +604,38 @@ export default function Home() {
           </div>
         </section>
 
+        {/* From the blog */}
+        <section aria-labelledby="blog-title" className="mx-auto max-w-6xl px-4 pt-20 sm:px-6">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="font-display text-lg font-semibold uppercase tracking-widest text-orange">From our blog</p>
+              <h2 id="blog-title" className="mt-2 font-display text-4xl font-bold uppercase leading-none text-navy sm:text-5xl">
+                Read before you decide
+              </h2>
+            </div>
+            <Link href="/blog" className="font-display text-lg font-bold uppercase text-navy hover:text-orange-dark">
+              All articles →
+            </Link>
+          </div>
+          <ul className="mt-8 grid gap-6 md:grid-cols-2">
+            {posts.map((p) => (
+              <li key={p.href}>
+                <Link
+                  href={p.href}
+                  className="group flex h-full flex-col rounded-xl border border-navy/10 bg-white p-6 transition hover:border-orange hover:shadow-md"
+                >
+                  <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">
+                    {p.tag} · {p.readTime}
+                  </p>
+                  <h3 className="mt-2 font-display text-2xl font-bold uppercase leading-tight text-navy group-hover:text-orange-dark">{p.title}</h3>
+                  <p className="mt-2 flex-1 text-muted">{p.excerpt}</p>
+                  <p className="mt-4 font-display text-lg font-bold uppercase text-navy">Read →</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         {/* FAQ */}
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <SectionTitle eyebrow="FAQ" title="Frequently asked questions" />
@@ -655,6 +689,15 @@ export default function Home() {
             <p className="mt-4 max-w-sm">Google Ads, LSA and Local SEO for US residential roofers. Month-to-month. Cancel anytime.</p>
             <p className="mt-3">
               <a href={`mailto:${EMAIL}`} className="hover:text-white">{EMAIL}</a>
+            </p>
+            <p className="mt-3">
+              <Link href="/blog" className="hover:text-white">
+                Blog
+              </Link>
+              <span aria-hidden="true"> · </span>
+              <Link href="/blog/our-conversion-funnel" className="hover:text-white">
+                How we work
+              </Link>
             </p>
           </div>
           <div className="md:justify-self-end">
