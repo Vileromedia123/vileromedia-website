@@ -1,28 +1,45 @@
+import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+
+// Free Unsplash photos (Unsplash License). Swap for our own crew photos when we have them.
+const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70`;
+const photos = {
+  hero: photo("photo-1643225523483-e2c434191bba"), // person carrying shingles across a residential roof
+  ads: photo("photo-1632759145351-1d592919f522"), // man standing on the roof of a house
+  seo: photo("photo-1779941373840-a93f6e0d5db0"), // grey metal roof, white siding, dormer window
+  pages: photo("photo-1633759593085-1eaeb724fc88"), // removing shingles from a residential roof
+  about: photo("photo-1635424709961-f3a150459ad4"), // two men working on the roof of a house
+};
 
 const nav = [
   { href: "#services", label: "Services" },
   { href: "#pricing", label: "Pricing" },
   { href: "#work", label: "Work" },
-  { href: "#team", label: "Team" },
+  { href: "#about", label: "About us" },
 ];
 
 const services = [
   {
     tag: "Start here",
     title: "Google Ads + Local Services Ads",
+    img: photos.ads,
+    alt: "Roofer standing on the roof of a house",
     body: "We set up and run your Google Ads and LSA so you show up when a homeowner in your service area searches “roof repair near me”. We cut keywords that bring clicks but no calls.",
     points: ["Call tracking on every ad", "Negative keywords from day one", "LSA profile, reviews and disputes handled"],
   },
   {
     tag: "Month 2+",
     title: "Local SEO",
+    img: photos.seo,
+    alt: "Metal roof and dormer window on a family house",
     body: "Your Google Business Profile, reviews and service-area pages, so you climb in Google Maps and stop paying for every single call.",
     points: ["Google Business Profile cleanup", "Review request system", "One page per city you serve"],
   },
   {
     tag: "When needed",
     title: "Landing pages that get calls",
+    img: photos.pages,
+    alt: "Roofer removing old shingles from a residential roof",
     body: "Ads only work if the page they land on makes a homeowner pick up the phone. We build or fix that page: fast on mobile, phone number one tap away.",
     points: ["Loads in under 2 seconds on 4G", "Tap-to-call and short form", "Photos of your real crews"],
   },
@@ -209,18 +226,22 @@ export default function Home() {
                 "repeating-linear-gradient(135deg, #fff 0 2px, transparent 2px 28px)",
             }}
           />
-          <div className="relative mx-auto grid max-w-6xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-[1.15fr_1fr] md:items-center md:py-24">
+          <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.1fr_1fr] md:items-center md:py-20">
             <div>
-              <p className="inline-block rounded-full border border-white/20 px-3 py-1 text-sm text-white/80">
-                For US residential roofers doing $500K–$3M a year
+              <p className="inline-flex items-center gap-2 rounded-full border border-orange/40 bg-orange/10 px-3 py-1 text-sm font-medium text-orange">
+                <span aria-hidden="true">●</span> Digital marketing agency for US roofing companies
               </p>
               <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[0.95] sm:text-6xl lg:text-7xl">
-                Clicks don&apos;t pay the crew.
-                <span className="block text-orange">Booked inspections do.</span>
+                We get roofing companies
+                <span className="block text-orange">more calls from Google.</span>
               </h1>
-              <p className="mt-6 max-w-xl text-lg text-white/80">
-                We run Google Ads and Local Services Ads for small roofing companies. Prices on this page.
-                Month-to-month. A one-page report that counts calls, not impressions.
+              <p className="mt-6 max-w-xl text-lg text-white/85">
+                VileroMedia is a marketing agency that only works with <strong className="text-white">residential roofers in the US</strong> doing
+                $500K–$3M a year. We run your Google Ads and Local Services Ads, then your Local SEO, and we build the pages that turn
+                that traffic into booked inspections.
+              </p>
+              <p className="mt-4 font-display text-2xl font-bold uppercase text-white/90">
+                Clicks don&apos;t pay the crew. <span className="text-orange">Booked inspections do.</span>
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -230,58 +251,69 @@ export default function Home() {
                   Get a free 15-min Google Ads audit
                 </a>
                 <a
-                  href="#pricing"
+                  href="#about"
                   className="inline-flex items-center justify-center rounded-md border-2 border-white/30 px-6 py-4 font-display text-xl font-bold uppercase tracking-wide text-white hover:border-white"
                 >
-                  See our prices
+                  Who we are
                 </a>
               </div>
               <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
-                <li>✓ No credit card</li>
-                <li>✓ No contract</li>
+                <li>✓ Prices on the page</li>
+                <li>✓ Month-to-month, no contract</li>
                 <li>✓ You own your ad account</li>
               </ul>
             </div>
 
-            {/* Money card */}
-            <div className="rounded-xl border border-white/10 bg-navy-2 p-6 shadow-2xl sm:p-8">
-              <p className="font-display text-lg font-semibold uppercase tracking-widest text-white/60">
-                What one call really costs
-              </p>
-              <dl className="mt-6 space-y-4">
-                <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
-                  <dt className="text-white/70">Average cost per click</dt>
-                  <dd className="font-display text-3xl font-bold">$50</dd>
+            {/* Photo + money card */}
+            <div className="relative pb-24 sm:pb-20">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-white/10 shadow-2xl md:aspect-[4/5]">
+                <Image
+                  src={photos.hero}
+                  alt="Roofer carrying a bundle of shingles across the roof of a family house"
+                  fill
+                  priority
+                  sizes="(min-width: 768px) 45vw, 100vw"
+                  className="object-cover"
+                />
+                <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
+              </div>
+              <div className="absolute inset-x-4 bottom-0 rounded-xl border border-white/10 bg-navy-2/95 p-5 shadow-2xl backdrop-blur sm:inset-x-8">
+                <p className="font-display text-base font-semibold uppercase tracking-widest text-white/60">What one call really costs</p>
+                <div className="mt-3 flex items-end justify-between gap-4 text-sm text-white/70">
+                  <p>
+                    $50 per click × 20% of clicks that call
+                    <span className="block text-xs text-white/50">Example from sector figures. The audit gives you yours.</span>
+                  </p>
+                  <p className="font-display text-5xl font-bold leading-none text-green-light">$250</p>
                 </div>
-                <div className="flex items-baseline justify-between border-b border-white/10 pb-4">
-                  <dt className="text-white/70">Clicks that turn into a call</dt>
-                  <dd className="font-display text-3xl font-bold">20%</dd>
-                </div>
-                <div className="flex items-baseline justify-between">
-                  <dt className="text-white/70">Cost per call</dt>
-                  <dd className="font-display text-5xl font-bold text-green-light">$250</dd>
-                </div>
-              </dl>
-              <p className="mt-6 text-sm text-white/50">
-                Example based on figures the roofing sector reports. Your numbers depend on your area. That&apos;s what the free audit is for.
-              </p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Promise strip */}
-        <section aria-label="How we work" className="border-b border-navy/10 bg-white">
-          <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 sm:grid-cols-3 sm:px-6">
-            {[
-              ["Prices on the page", "No “book a call to find out”. Our fees are below."],
-              ["Month-to-month", "Cancel anytime. We earn the next month every month."],
-              ["Calls, not clicks", "We report calls and booked inspections. That’s it."],
-            ].map(([t, d]) => (
-              <div key={t}>
-                <p className="font-display text-2xl font-bold uppercase text-navy">{t}</p>
-                <p className="mt-1 text-muted">{d}</p>
-              </div>
-            ))}
+        {/* Mission */}
+        <section aria-labelledby="mission-title" className="border-b border-navy/10 bg-white">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.2fr_1fr] md:items-center">
+            <div>
+              <p id="mission-title" className="font-display text-lg font-semibold uppercase tracking-widest text-orange">Our mission</p>
+              <blockquote className="mt-3 font-display text-3xl font-bold uppercase leading-tight text-navy sm:text-4xl">
+                “We help small residential roofing companies in the US get more calls and booked inspections from Google, month-to-month and
+                with clear pricing.”
+              </blockquote>
+            </div>
+            <dl className="grid grid-cols-3 gap-4 text-center">
+              {[
+                ["1", "niche: residential roofing"],
+                ["0", "long contracts"],
+                ["15 min", "free audit, no card"],
+              ].map(([n, l]) => (
+                <div key={l} className="rounded-lg bg-paper p-4">
+                  <dt className="sr-only">{l}</dt>
+                  <dd className="font-display text-4xl font-bold text-green">{n}</dd>
+                  <dd className="mt-1 text-sm text-muted">{l}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </section>
 
@@ -293,7 +325,11 @@ export default function Home() {
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {services.map((s) => (
-              <article key={s.title} className="flex flex-col rounded-lg border border-navy/10 bg-white p-6">
+              <article key={s.title} className="flex flex-col overflow-hidden rounded-lg border border-navy/10 bg-white">
+                <div className="relative aspect-[16/10]">
+                  <Image src={s.img} alt={s.alt} fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
                 <span className="self-start rounded bg-navy px-2 py-1 font-display text-sm font-semibold uppercase tracking-wider text-white">
                   {s.tag}
                 </span>
@@ -307,6 +343,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
+                </div>
               </article>
             ))}
           </div>
@@ -409,14 +446,58 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Team */}
-        <section id="team" className="border-y border-navy/10 bg-white py-20">
+        {/* About us */}
+        <section id="about" className="border-y border-navy/10 bg-white py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <SectionTitle eyebrow="The team" title="Real people. One of us picks up the phone." />
-            <p className="mt-4 max-w-2xl text-lg text-muted">
+            <div className="grid gap-12 md:grid-cols-2 md:items-center">
+              <div>
+                <SectionTitle eyebrow="About us" title="Why we started VileroMedia" />
+                <div className="mt-6 space-y-4 text-lg text-muted">
+                  <p>
+                    We looked at the agencies that sell marketing to roofers. Most of them chase companies doing $1M to $15M a year. Most hide
+                    their prices behind a “book a call” button. The one that shows its prices wants a yearly contract. And their reports talk
+                    about clicks and impressions.
+                  </p>
+                  <p>
+                    Then we asked a roofing owner in Texas about his last agency. He paid every month for a year, got reports full of clicks, and
+                    never found out how many roofs it actually brought in. He was stuck in a 12-month contract and just waited for it to end.
+                  </p>
+                  <p className="font-semibold text-navy">
+                    Nobody was building for the smaller roofer, the owner who still does the estimates himself and answers the phone between two
+                    jobs. So we built the agency we would want to hire.
+                  </p>
+                </div>
+              </div>
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
+                <Image
+                  src={photos.about}
+                  alt="Two roofers working on the roof of a house"
+                  fill
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {[
+                ["Transparency", "Prices and terms out in the open, before you talk to anyone."],
+                ["Honesty", "If something isn't working, we tell you, and we say what we'll change."],
+                ["Simplicity", "One-page reports. Four numbers. No jargon."],
+                ["Results", "We count calls and booked inspections, not likes."],
+              ].map(([t, d]) => (
+                <li key={t} className="rounded-lg border border-navy/10 bg-paper p-5">
+                  <p className="font-display text-2xl font-bold uppercase text-navy">{t}</p>
+                  <p className="mt-1 text-muted">{d}</p>
+                </li>
+              ))}
+            </ul>
+
+            <h3 className="mt-16 font-display text-3xl font-bold uppercase text-navy">The team</h3>
+            <p className="mt-2 max-w-2xl text-muted">
               Six people, one niche: residential roofing in the US. Your account lead answers within 24 hours on weekdays.
             </p>
-            <ul className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
+            <ul className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
               {team.map((m) => (
                 <li key={m.name} className="text-center">
                   <div
