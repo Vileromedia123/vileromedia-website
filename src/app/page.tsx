@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
+import Socials, { socials } from "@/components/Socials";
 
 // Free Unsplash photos (Unsplash License). Swap for our own crew photos when we have them.
 const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70`;
@@ -176,6 +177,7 @@ export default function Home() {
     "@type": "ProfessionalService",
     name: "VileroMedia",
     url: "https://vileromedia.com",
+    sameAs: socials.map((x) => x.href),
     description:
       "Google Ads, Local Services Ads and Local SEO for small residential roofing companies in the US.",
     areaServed: "US",
@@ -558,13 +560,21 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="bg-navy py-10 text-white/60">
-        <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6">
-          <Logo />
-          <p>Google Ads, LSA and Local SEO for US residential roofers. Month-to-month. Cancel anytime.</p>
-          <p>
-            <a href="mailto:hello@vileromedia.com" className="hover:text-white">hello@vileromedia.com</a>
-          </p>
+      <footer className="bg-navy py-12 text-white/60">
+        <div className="mx-auto grid max-w-6xl gap-8 px-4 text-sm sm:px-6 md:grid-cols-[1.2fr_1fr] md:items-start">
+          <div>
+            <Logo />
+            <p className="mt-4 max-w-sm">Google Ads, LSA and Local SEO for US residential roofers. Month-to-month. Cancel anytime.</p>
+            <p className="mt-3">
+              <a href="mailto:hello@vileromedia.com" className="hover:text-white">hello@vileromedia.com</a>
+            </p>
+          </div>
+          <div className="md:justify-self-end">
+            <p className="font-display text-lg font-semibold uppercase tracking-widest text-white">
+              Follow <span className="text-orange">@vileromedia</span>
+            </p>
+            <Socials className="mt-3" />
+          </div>
         </div>
         <p className="mx-auto mt-6 max-w-6xl px-4 text-xs text-white/40 sm:px-6">
           © {new Date().getFullYear()} VileroMedia. Student project, TBS Education.
