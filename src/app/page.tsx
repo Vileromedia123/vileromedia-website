@@ -18,7 +18,7 @@ const nav = [
   { href: "#pricing", label: "Pricing" },
   { href: "#work", label: "Work" },
   { href: "#about", label: "About us" },
-  { href: "/guides/google-ads-budget-for-roofers", label: "Guide" },
+  { href: "/blog", label: "Blog" },
 ];
 
 const services = [
