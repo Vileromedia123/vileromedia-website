@@ -253,9 +253,8 @@ export default function Home() {
                 <span className="block text-orange">more calls from Google.</span>
               </h1>
               <p className="mt-6 max-w-xl text-lg text-white/85">
-                VileroMedia is a marketing agency that only works with <strong className="text-white">residential roofers in the US</strong> doing
-                $500K–$3M a year. We run your Google Ads and Local Services Ads, then your Local SEO, and we build the pages that turn
-                that traffic into booked inspections.
+                VileroMedia is a digital marketing agency for <strong className="text-white">residential roofing companies in the US</strong>. We run
+                your Google Ads and Local Services Ads, then your Local SEO, and we build the pages that turn that traffic into booked inspections.
               </p>
               <p className="mt-4 font-display text-2xl font-bold uppercase text-white/90">
                 Clicks don&apos;t pay the crew. <span className="text-orange">Booked inspections do.</span>
@@ -595,7 +594,7 @@ export default function Home() {
 
         {/* FAQ */}
         <section className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-          <SectionTitle eyebrow="Straight answers" title="Questions roofers ask us" />
+          <SectionTitle eyebrow="FAQ" title="Frequently asked questions" />
           <div className="mt-10 grid gap-4 md:grid-cols-2">
             {faqs.map((f) => (
               <details key={f.q} className="group rounded-lg border border-navy/10 bg-white p-5 open:shadow-sm">

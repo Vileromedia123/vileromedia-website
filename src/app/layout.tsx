@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "VileroMedia | More roofing calls from Google",
     description:
-      "Google Ads and LSA for roofers doing $500K–$3M. Clear pricing, month-to-month, reports in calls, not clicks.",
+      "Google Ads and LSA for residential roofing companies in the US. Clear pricing, month-to-month, reports in calls, not clicks.",
     siteName: "VileroMedia",
     type: "website",
   },
