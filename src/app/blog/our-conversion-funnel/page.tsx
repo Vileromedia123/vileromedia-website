@@ -93,13 +93,13 @@ const targets = [
     why: "Colder traffic, so we aim for the top of the normal range, helped by the guide and the free audit.",
   },
   {
-    step: "Audit request → audit held",
+    step: "Audit → follow-up call booked",
     benchmark: "Lead → qualified lead ≈ 30%",
     ours: "50%",
-    why: "Requests are already qualified: the form asks for the service area and goal, and the audit is free.",
+    why: "Requests are already qualified: the form asks for the service area and goal, and the audit shows real numbers.",
   },
   {
-    step: "Audit held → client",
+    step: "Audit → client",
     benchmark: "Varies widely by industry",
     ours: "25% (1 in 4)",
     why: "Month-to-month and visible prices remove the two biggest objections before the call starts.",
@@ -344,13 +344,15 @@ export default function FunnelArticle() {
         <Note>Typical digital marketing benchmarks: visit → lead 1–3%, lead → qualified lead about 30%, landing page conversion 2–5%.</Note>
 
         <div className="mt-8 rounded-xl bg-navy p-6 text-white sm:p-8">
-          <p className="font-display text-sm font-semibold uppercase tracking-widest text-white/60">What that means, per 100 owners who visit from the groups</p>
+          <p className="font-display text-sm font-semibold uppercase tracking-widest text-white/60">
+            Our first-quarter goal · 2 November 2026 to 31 January 2027
+          </p>
           <p className="mt-3 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">
-            100 visits → <span className="text-orange">7 audit requests</span> → 3–4 audits → <span className="text-green-light">about 1 new client</span>
+            120 visits → <span className="text-orange">8 audit requests</span> → 4 follow-up calls → <span className="text-green-light">2 new clients</span>
           </p>
           <p className="mt-4 text-white/75">
-            From search, the same 100 visits give about 3 audit requests. That&apos;s why the groups come first, and why every guide ends with the
-            audit.
+            Measured from Facebook, Instagram and roofers&apos; groups, with UTM links and the “How did you hear about us?” question on the audit form.
+            Search traffic from our guides comes on top: every 100 search visits should add about 3 audit requests.
           </p>
         </div>
 
@@ -487,7 +489,7 @@ export default function FunnelArticle() {
           <h2 className="font-display text-3xl font-bold uppercase">The short version</h2>
           <ul className="mt-4 space-y-2 text-white/85">
             <li>✓ Two ways in, roofers&apos; Facebook groups and search, and one next step: the free 15-minute audit.</li>
-            <li>✓ A target at every stage: 7% of warm visitors request an audit, half of them get one, 1 in 4 audits becomes a client.</li>
+            <li>✓ A target at every stage, and a first-quarter goal: 8 audit requests and 2 new clients.</li>
             <li>✓ 5 searches we build pages around, from “how to get more roofing leads” to “roofing marketing agency no contract”.</li>
             <li>✓ We tested the site before launch and fixed what held owners back.</li>
           </ul>
