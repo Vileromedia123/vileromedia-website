@@ -108,13 +108,13 @@ const work = [
   },
 ];
 
-const team = [
-  { name: "Carl Fleury", role: "Client strategy", initials: "CF" },
-  { name: "Laura Jankowiak", role: "Google Ads", initials: "LJ" },
-  { name: "Magnus Monstad Tveraaen", role: "Local Services Ads", initials: "MT" },
-  { name: "Natasha Pauls", role: "Local SEO", initials: "NP" },
+const team: { name: string; role: string; initials: string; photo?: string }[] = [
+  { name: "Carl Fleury", role: "Client strategy", initials: "CF", photo: "/team/carl-fleury.jpg" },
+  { name: "Laura Jankowiak", role: "Google Ads", initials: "LJ", photo: "/team/laura-jankowiak.jpg" },
+  { name: "Magnus Monstad Tveraaen", role: "Local Services Ads", initials: "MT", photo: "/team/magnus-monstad-tveraaen.jpg" },
+  { name: "Natasha Pauls", role: "Local SEO", initials: "NP", photo: "/team/natasha-pauls.jpg" },
   { name: "Ricardo Tannous", role: "Landing pages", initials: "RT" },
-  { name: "Sami Hakkou", role: "Tracking & reporting", initials: "SH" },
+  { name: "Sami Hakkou", role: "Tracking & reporting", initials: "SH", photo: "/team/sami-hakkou.jpg" },
 ];
 
 const faqs = [
@@ -500,12 +500,18 @@ export default function Home() {
             <ul className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
               {team.map((m) => (
                 <li key={m.name} className="text-center">
-                  <div
-                    aria-hidden="true"
-                    className="mx-auto flex aspect-square w-full max-w-36 items-center justify-center rounded-lg bg-navy font-display text-4xl font-bold text-orange"
-                  >
-                    {m.initials}
-                  </div>
+                  {m.photo ? (
+                    <div className="relative mx-auto aspect-square w-full max-w-36 overflow-hidden rounded-lg bg-navy">
+                      <Image src={m.photo} alt={`Portrait of ${m.name}`} fill sizes="144px" className="object-cover" />
+                    </div>
+                  ) : (
+                    <div
+                      aria-hidden="true"
+                      className="mx-auto flex aspect-square w-full max-w-36 items-center justify-center rounded-lg bg-navy font-display text-4xl font-bold text-orange"
+                    >
+                      {m.initials}
+                    </div>
+                  )}
                   <p className="mt-3 font-semibold text-navy">{m.name}</p>
                   <p className="text-sm text-muted">{m.role}</p>
                 </li>
