@@ -105,7 +105,7 @@ export default function ContactForm() {
         {pending ? "Sending…" : "Book my free 15-minute audit"}
       </button>
       <p className="text-center text-sm text-muted">
-        No credit card. No contract. We reply within 24 hours on weekdays.
+        No credit card. No contract. We reply within 24 hours on weekdays (US hours).
       </p>
     </form>
   );

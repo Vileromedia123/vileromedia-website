@@ -1,6 +1,7 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Socials, { socials } from "@/components/Socials";
+import { EMAIL, HOURS, PHONE, SITE_URL } from "@/lib/site";
 
 // Free Unsplash photos (Unsplash License). Swap for our own crew photos when we have them.
 const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70`;
@@ -17,6 +18,7 @@ const nav = [
   { href: "#pricing", label: "Pricing" },
   { href: "#work", label: "Work" },
   { href: "#about", label: "About us" },
+  { href: "/guides/google-ads-budget-for-roofers", label: "Guide" },
 ];
 
 const services = [
@@ -75,14 +77,15 @@ const plans = [
 
 const work = [
   {
-    kind: "Sample report",
+    kind: "Sample report · illustrative example, not client data",
     title: "The one-page monthly report",
-    body: "Calls, booked inspections, cost per call, ad spend. Four numbers you can show your spouse or your bookkeeper. Nothing about impressions.",
+    body: "Calls, booked inspections, jobs signed, ad spend, cost per call. Numbers you can show your spouse or your bookkeeper. Nothing about impressions.",
     rows: [
-      ["Calls from Google", "—"],
-      ["Booked inspections", "—"],
-      ["Ad spend", "—"],
-      ["Cost per call", "—"],
+      ["Calls from Google", "24"],
+      ["Booked inspections", "14"],
+      ["Jobs signed", "6"],
+      ["Ad spend (paid to Google)", "$3,000"],
+      ["Cost per call", "$125"],
     ],
   },
   {
@@ -109,13 +112,13 @@ const work = [
   },
 ];
 
-const team: { name: string; role: string; initials: string; photo?: string }[] = [
-  { name: "Carl Fleury", role: "Client strategy", initials: "CF", photo: "/team/carl-fleury.jpg" },
-  { name: "Laura Jankowiak", role: "Google Ads", initials: "LJ", photo: "/team/laura-jankowiak.jpg" },
-  { name: "Magnus Monstad Tveraaen", role: "Local Services Ads", initials: "MT", photo: "/team/magnus-monstad-tveraaen.jpg" },
-  { name: "Natasha Pauls", role: "Local SEO", initials: "NP", photo: "/team/natasha-pauls.jpg" },
-  { name: "Ricardo Tannous", role: "Landing pages", initials: "RT", photo: "/team/ricardo-tannous.jpg" },
-  { name: "Sami Hakkou", role: "Tracking & reporting", initials: "SH", photo: "/team/sami-hakkou.jpg" },
+const team: { name: string; role: string; initials: string; photo?: string; does: string }[] = [
+  { name: "Carl Fleury", role: "Client strategy", initials: "CF", photo: "/team/carl-fleury.jpg", does: "Runs your free audit and your monthly check-in call." },
+  { name: "Laura Jankowiak", role: "Google Ads", initials: "LJ", photo: "/team/laura-jankowiak.jpg", does: "Builds your search campaigns and cuts keywords that bring no calls." },
+  { name: "Magnus Monstad Tveraaen", role: "Local Services Ads", initials: "MT", photo: "/team/magnus-monstad-tveraaen.jpg", does: "Sets up your LSA profile, reviews and lead disputes." },
+  { name: "Natasha Pauls", role: "Local SEO", initials: "NP", photo: "/team/natasha-pauls.jpg", does: "Cleans up your Google Business Profile so you climb in Maps." },
+  { name: "Ricardo Tannous", role: "Landing pages", initials: "RT", photo: "/team/ricardo-tannous.jpg", does: "Builds the pages your ads land on: fast, tap-to-call, real photos." },
+  { name: "Sami Hakkou", role: "Tracking & reporting", initials: "SH", photo: "/team/sami-hakkou.jpg", does: "Sets up call tracking and writes your one-page report." },
 ];
 
 const faqs = [
@@ -130,6 +133,18 @@ const faqs = [
   {
     q: "Who owns the Google Ads account?",
     a: "You do. If you leave, the account, the data and the history stay with you.",
+  },
+  {
+    q: "Already have an agency? How does switching work?",
+    a: "You give us access to your Google Ads and Google Business Profile (you keep ownership). We read the last 90 days, keep what brings calls, and rebuild the rest. Your old agency only has to hand back admin access. No data is lost, and your ads keep running during the switch.",
+  },
+  {
+    q: "I've never hired an agency. Do I even need one?",
+    a: "Maybe not. If referrals keep your crews busy all year, keep doing what works. Google matters when you want calls outside storm season or in a new area. The free audit tells you which side you're on, even if the answer is “not yet”.",
+  },
+  {
+    q: "Where are you, and when can I reach you?",
+    a: `We're a remote team working on US hours: ${HOURS}. We answer emails and form requests within 24 hours on weekdays.`,
   },
   {
     q: "Do you promise a number of leads?",
@@ -176,13 +191,14 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "VileroMedia",
-    url: "https://vileromedia.com",
+    url: SITE_URL,
+    ...(PHONE ? { telephone: PHONE.tel } : {}),
     sameAs: socials.map((x) => x.href),
     description:
       "Google Ads, Local Services Ads and Local SEO for small residential roofing companies in the US.",
     areaServed: "US",
     priceRange: "$600–$1,200 per month",
-    email: "hello@vileromedia.com",
+    email: EMAIL,
   };
 
   return (
@@ -208,12 +224,22 @@ export default function Home() {
               ))}
             </ul>
           </nav>
-          <a
-            href="#contact"
-            className="rounded-md bg-orange px-4 py-2 font-display text-lg font-bold uppercase tracking-wide text-white hover:bg-orange-dark"
-          >
-            Free audit
-          </a>
+          <div className="flex items-center gap-2">
+            {PHONE && (
+              <a
+                href={`tel:${PHONE.tel}`}
+                className="hidden rounded-md border border-white/30 px-3 py-2 font-display text-lg font-bold uppercase tracking-wide text-white hover:border-white sm:inline-flex"
+              >
+                Call {PHONE.display}
+              </a>
+            )}
+            <a
+              href="#contact"
+              className="rounded-md bg-orange px-4 py-2 font-display text-lg font-bold uppercase tracking-wide text-white hover:bg-orange-dark"
+            >
+              Free audit
+            </a>
+          </div>
         </div>
       </header>
 
@@ -253,15 +279,15 @@ export default function Home() {
                   Get a free 15-min Google Ads audit
                 </a>
                 <a
-                  href="#about"
+                  href={PHONE ? `tel:${PHONE.tel}` : "#about"}
                   className="inline-flex items-center justify-center rounded-md border-2 border-white/30 px-6 py-4 font-display text-xl font-bold uppercase tracking-wide text-white hover:border-white"
                 >
-                  Who we are
+                  {PHONE ? `Call ${PHONE.display}` : "Who we are"}
                 </a>
               </div>
               <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
                 <li>✓ Prices on the page</li>
-                <li>✓ Month-to-month, no contract</li>
+                <li>✓ Month-to-month. Cancel anytime, 30 days&apos; notice</li>
                 <li>✓ You own your ad account</li>
               </ul>
             </div>
@@ -284,7 +310,9 @@ export default function Home() {
                 <div className="mt-3 flex items-end justify-between gap-4 text-sm text-white/70">
                   <p>
                     $50 per click × 20% of clicks that call
-                    <span className="block text-xs text-white/50">Example from sector figures. The audit gives you yours.</span>
+                    <span className="block text-xs text-white/50">
+                      Illustrative example using figures from CinchLocal, “The Cost of Invisibility”. Your area will differ. The audit gives you yours.
+                    </span>
                   </p>
                   <p className="font-display text-5xl font-bold leading-none text-green-light">$250</p>
                 </div>
@@ -368,7 +396,7 @@ export default function Home() {
                 >
                   {p.featured && (
                     <span className="absolute -top-3 left-6 rounded bg-orange px-2 py-1 font-display text-sm font-bold uppercase tracking-wider text-white">
-                      Most roofers pick this
+                      Recommended for 2–3 service areas
                     </span>
                   )}
                   <h3 className="font-display text-3xl font-bold uppercase">{p.name}</h3>
@@ -448,6 +476,42 @@ export default function Home() {
           </div>
         </section>
 
+        {/* First 30 days */}
+        <section aria-labelledby="first30" className="bg-navy py-20 text-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <p className="font-display text-lg font-semibold uppercase tracking-widest text-orange">Never hired an agency?</p>
+            <h2 id="first30" className="mt-2 font-display text-4xl font-bold uppercase leading-none sm:text-5xl">Your first 30 days with us</h2>
+            <ol className="mt-12 grid gap-4 md:grid-cols-4">
+              {[
+                ["Day 1", "Free 15-min audit", "We look at your ads or your market and tell you, in plain numbers, if Google is worth it for you."],
+                ["Week 1", "Setup in your name", "Google Ads and LSA accounts you own, call tracking, and a landing page that gets calls."],
+                ["Week 2–3", "First calls", "Ads go live in your service area. We cut what brings clicks but no calls, every week."],
+                ["Day 30", "Your first report", "One page: calls, booked inspections, ad spend, cost per call. Then you decide if we keep going."],
+              ].map(([when, title, body], i) => (
+                <li key={when} className="rounded-lg border border-white/10 bg-navy-2 p-6">
+                  <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">
+                    {i + 1}. {when}
+                  </p>
+                  <p className="mt-2 font-display text-2xl font-bold uppercase">{title}</p>
+                  <p className="mt-2 text-white/70">{body}</p>
+                </li>
+              ))}
+            </ol>
+            <div className="mt-10 flex flex-col gap-4 rounded-lg border border-dashed border-white/20 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-white/80">
+                <span className="font-display text-xl font-bold uppercase text-white">Not ready for an audit?</span> Read our guide: how much a roofer
+                should spend on Google Ads, with the math.
+              </p>
+              <a
+                href="/guides/google-ads-budget-for-roofers"
+                className="inline-flex shrink-0 items-center justify-center rounded-md border-2 border-white/30 px-5 py-3 font-display text-lg font-bold uppercase tracking-wide hover:border-white"
+              >
+                Read the guide
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* About us */}
         <section id="about" className="border-y border-navy/10 bg-white py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -481,7 +545,24 @@ export default function Home() {
               </div>
             </div>
 
-            <ul className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-14 rounded-xl bg-navy p-6 text-white sm:p-8">
+              <h3 className="font-display text-3xl font-bold uppercase">What we learned before opening</h3>
+              <dl className="mt-6 grid gap-6 md:grid-cols-3">
+                {[
+                  ["3 agencies checked", "Two hide their prices. The one that shows them asks for a yearly contract."],
+                  ["0–5 comments", "per social post, even for the biggest one. Nobody is actually talking with roofers."],
+                  ["1 owner, 12 months", "of click reports he couldn't read, stuck in a contract. He told us exactly what he'd want instead."],
+                ].map(([k, v]) => (
+                  <div key={k}>
+                    <dt className="font-display text-3xl font-bold text-green-light">{k}</dt>
+                    <dd className="mt-1 text-white/75">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-6 text-xs text-white/50">Competitor websites and social accounts checked in October 2026. Owner interview: residential roofer in Texas, shared with his permission.</p>
+            </div>
+
+            <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 ["Transparency", "Prices and terms out in the open, before you talk to anyone."],
                 ["Honesty", "If something isn't working, we tell you, and we say what we'll change."],
@@ -497,7 +578,7 @@ export default function Home() {
 
             <h3 className="mt-16 font-display text-3xl font-bold uppercase text-navy">The team</h3>
             <p className="mt-2 max-w-2xl text-muted">
-              Six people, one niche: residential roofing in the US. Your account lead answers within 24 hours on weekdays.
+              Six people, one niche: residential roofing in the US. We work remotely, on US hours ({HOURS}), and reply within 24 hours on weekdays.
             </p>
             <ul className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
               {team.map((m) => (
@@ -515,7 +596,8 @@ export default function Home() {
                     </div>
                   )}
                   <p className="mt-3 font-semibold text-navy">{m.name}</p>
-                  <p className="text-sm text-muted">{m.role}</p>
+                  <p className="text-sm font-medium text-orange">{m.role}</p>
+                  <p className="mt-1 text-sm text-muted">{m.does}</p>
                 </li>
               ))}
             </ul>
@@ -554,6 +636,22 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-8 rounded-lg border border-white/15 p-5">
+                {PHONE && (
+                  <a
+                    href={`tel:${PHONE.tel}`}
+                    className="flex min-h-11 items-center justify-center rounded-md bg-white px-4 py-3 font-display text-xl font-bold uppercase tracking-wide text-navy hover:bg-paper"
+                  >
+                    Rather talk? Call {PHONE.display}
+                  </a>
+                )}
+                <p className={`text-sm text-white/70 ${PHONE ? "mt-3" : ""}`}>
+                  We answer {HOURS}. Email:{" "}
+                  <a href={`mailto:${EMAIL}`} className="underline hover:text-white">
+                    {EMAIL}
+                  </a>
+                </p>
+              </div>
             </div>
             <ContactForm />
           </div>
