@@ -114,7 +114,7 @@ const team: { name: string; role: string; initials: string; photo?: string }[] =
   { name: "Laura Jankowiak", role: "Google Ads", initials: "LJ", photo: "/team/laura-jankowiak.jpg" },
   { name: "Magnus Monstad Tveraaen", role: "Local Services Ads", initials: "MT", photo: "/team/magnus-monstad-tveraaen.jpg" },
   { name: "Natasha Pauls", role: "Local SEO", initials: "NP", photo: "/team/natasha-pauls.jpg" },
-  { name: "Ricardo Tannous", role: "Landing pages", initials: "RT" },
+  { name: "Ricardo Tannous", role: "Landing pages", initials: "RT", photo: "/team/ricardo-tannous.jpg" },
   { name: "Sami Hakkou", role: "Tracking & reporting", initials: "SH", photo: "/team/sami-hakkou.jpg" },
 ];
 
