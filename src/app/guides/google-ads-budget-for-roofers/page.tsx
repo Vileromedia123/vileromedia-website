@@ -5,7 +5,7 @@ import { EMAIL, HOURS } from "@/lib/site";
 export const metadata: Metadata = {
   title: "How Much Should a Roofer Spend on Google Ads? | VileroMedia",
   description:
-    "A simple way for small residential roofing companies to set a Google Ads budget: start from the jobs you want, not from a number an agency gives you. With the math.",
+    "A simple way for residential roofing companies to set a Google Ads budget: start from the jobs you want, not from a number an agency gives you. With the math.",
   alternates: { canonical: "/guides/google-ads-budget-for-roofers" },
 };
 
@@ -112,6 +112,13 @@ export default function Guide() {
             Now compare that budget with what 4 jobs bring you. If 4 jobs are worth many times the ad spend, Google is worth testing. If they
             barely cover it, fix your booking or close rate first. More ads won&apos;t solve that.
           </p>
+          <div className="rounded-xl border border-navy/10 bg-white p-5">
+            <p className="font-display text-xl font-bold uppercase text-navy">Starting smaller?</p>
+            <p className="mt-2">
+              Aim for 2 extra jobs instead of 4: 2 ÷ 0.4 ÷ 0.6 ≈ 8 calls, × $250 ≈ <strong>$2,000 a month</strong>. You can also start with Local
+              Services Ads only, where you pay per lead instead of per click, and add Search ads once the calls come in.
+            </p>
+          </div>
         </Step>
 
         <Step n={4} title="Lower your cost per call before raising the budget">

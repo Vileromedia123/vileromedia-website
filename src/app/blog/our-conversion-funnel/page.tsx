@@ -4,9 +4,9 @@ import Link from "next/link";
 import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
 
 export const metadata: Metadata = {
-  title: "How We Find Roofing Companies That Need Us: Our Conversion Funnel | VileroMedia",
+  title: "From First Search to Booked Inspection: How Roofers Find and Hire Us | VileroMedia",
   description:
-    "VileroMedia's conversion funnel for US residential roofing companies: where roofers find us, the conversion target at each stage, and the 5 keywords roofers search when they need help with Google Ads.",
+    "VileroMedia's funnel, in the open: where roofing companies find us, the conversion rate we aim for at each step, the 5 searches roofers type when they need help with Google, and what our pre-launch website test changed.",
   alternates: { canonical: "/blog/our-conversion-funnel" },
 };
 
@@ -50,78 +50,66 @@ const funnel = [
   {
     stage: "3. Visit the site",
     where: "vileromedia website",
-    what: "Prices on the page, month-to-month, a sample report, the team with faces, and our first 30 days, step by step.",
+    what: "Prices on the page, month-to-month terms, a sample report, the team, and our first 30 days, step by step.",
     width: "70%",
   },
   {
     stage: "4. Request the free audit",
     where: "Audit form · email",
-    what: "15 minutes, no credit card, no contract. The form asks “How did you hear about us?” so we know which channel works.",
+    what: "15 minutes, no credit card, no contract. The form asks “How did you hear about us?”, so we know which channel works.",
     width: "52%",
   },
   {
     stage: "5. Audit call",
     where: "Video or phone call",
-    what: "We show where their ad money goes in plain numbers. They keep the findings, even if they never hire us.",
+    what: "We show where the ad money goes, in plain numbers. The owner keeps the findings, even if he never hires us.",
     width: "38%",
   },
   {
     stage: "6. Client",
     where: "Month-to-month",
-    what: "Starter ($600/mo) or Growth ($1,200/mo), plus ad spend paid to Google. Cancel anytime, 30 days' notice.",
+    what: "Starter ($600/mo) or Growth ($1,200/mo), plus ad spend paid directly to Google. Cancel anytime, 30 days' notice.",
     width: "26%",
   },
   {
     stage: "7. Referral",
     where: "Back into the Facebook groups",
-    what: "Happy clients tell other owners. A client spotlight (with permission) and a referral offer close the loop.",
+    what: "Owners trust other owners. A client spotlight (with permission) and a referral offer close the loop.",
     width: "18%",
   },
 ];
 
 const targets = [
   {
-    step: "Social reach → site visit",
-    benchmark: "Set in week 2 (no reliable benchmark for a new page)",
-    ours: "120 visits to the audit page",
-    source: "Group strategy, measured with UTM links",
-  },
-  {
-    step: "Search → site visit",
-    benchmark: "Depends on ranking",
-    ours: "80 visits from Google and AI tools",
-    source: "Our assumption for a brand-new site; checked after month 1",
-  },
-  {
-    step: "Visit → audit request (social)",
+    step: "Visit → audit request, from social & groups",
     benchmark: "Visit → lead 1–3% · landing page 2–5%",
-    ours: "≈ 7% → 8 requests",
-    source: "Group SMART goal. Warm traffic from groups converts above the average",
+    ours: "7%",
+    why: "Warm traffic: these owners already saw us answer a question in their group before they clicked.",
   },
   {
-    step: "Visit → audit request (search)",
+    step: "Visit → audit request, from search",
     benchmark: "Visit → lead 1–3%",
-    ours: "≈ 3% → 2 requests",
-    source: "Top of the course benchmark, colder traffic",
+    ours: "3%",
+    why: "Colder traffic, so we aim for the top of the normal range, helped by the guide and the free audit.",
   },
   {
-    step: "Audit request → audit call held",
-    benchmark: "Lead → MQL ≈ 30%",
-    ours: "50% → 5 calls",
-    source: "Group target: 4 calls from 8 requests. Requests are pre-qualified by the form",
+    step: "Audit request → audit held",
+    benchmark: "Lead → qualified lead ≈ 30%",
+    ours: "50%",
+    why: "Requests are already qualified: the form asks for the service area and goal, and the audit is free.",
   },
   {
-    step: "Audit → client",
-    benchmark: "No course benchmark",
-    ours: "1 in 4 audits → 2 clients",
-    source: "Group ROI assumption",
+    step: "Audit held → client",
+    benchmark: "Varies widely by industry",
+    ours: "25% (1 in 4)",
+    why: "Month-to-month and visible prices remove the two biggest objections before the call starts.",
   },
 ];
 
 const queries: { stage: string; tone: string; items: string[] }[] = [
   {
     stage: "Problem-aware",
-    tone: "He knows something is wrong, not what to buy",
+    tone: "Something is wrong, he doesn't know what to buy yet",
     items: [
       "why is my phone not ringing roofing business",
       "how to get more roofing leads",
@@ -163,33 +151,43 @@ const keywords = [
   {
     kw: "how to get more roofing leads",
     stage: "Problem-aware",
-    why: "The question Mike actually asks between two jobs, before he even thinks about an agency. Widest audience, and the entry point for owners who have never hired an agency.",
-    page: "New article: “How small roofers get more calls outside storm season” (next on our list)",
+    why: "The question owners ask long before they think about an agency. The widest audience, and the way in for owners who have never hired one.",
+    page: "Our next guide: getting more calls outside storm season",
   },
   {
     kw: "google ads for roofers",
     stage: "Solution-aware",
     why: "Names our first service exactly. Someone typing this already believes Google can work for him.",
-    page: "Home page, Services section",
+    page: "Home page, Services",
   },
   {
     kw: "how much should a roofer spend on google ads",
     stage: "Solution-aware",
-    why: "A money question, the kind our persona asks first. Matches our “numbers, not jargon” promise.",
-    page: "Our guide: How much should a roofer spend on Google Ads?",
+    why: "A money question, the one owners ask first. It matches our promise: numbers, not jargon.",
+    page: "Guide: How much should a roofer spend on Google Ads?",
   },
   {
     kw: "roofing marketing agency no contract",
     stage: "Ready to buy",
-    why: "Owners burned by a yearly contract are exactly who we built the offer for. This query is that pain, typed into Google.",
-    page: "Home page, Pricing and FAQ (“Is there a contract?”)",
+    why: "Owners burned by a yearly contract are the ones our offer was built for. This search is that exact pain.",
+    page: "Home page, Pricing and FAQ",
   },
   {
     kw: "local services ads for roofers",
     stage: "Solution-aware → ready",
-    why: "LSA is our Starter plan, and Google LSA news is the best-performing content we found in our competitor audit.",
+    why: "LSA is our Starter plan, and Google LSA news is the content roofers engage with most.",
     page: "Home page, Services and Starter plan",
   },
+];
+
+const segments: [string, number, number, number][] = [
+  // label, average score, n, would book
+  ["Burned by a yearly contract", 5.2, 21, 6],
+  ["Currently with an agency", 4.9, 8, 1],
+  ["Never hired an agency", 4.8, 39, 5],
+  ["Buys shared leads (Angi etc.)", 4.7, 7, 0],
+  ["Burned by click-only reports", 4.5, 19, 3],
+  ["Runs Google Ads himself", 4.3, 6, 1],
 ];
 
 /* ---------- page ---------- */
@@ -198,7 +196,7 @@ export default function FunnelArticle() {
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: "How we find roofing companies that need us: our conversion funnel",
+    headline: "From first search to booked inspection: how roofers find and hire us",
     author: { "@type": "Organization", name: "VileroMedia" },
     publisher: { "@type": "Organization", name: "VileroMedia" },
     datePublished: "2026-10-20",
@@ -218,19 +216,20 @@ export default function FunnelArticle() {
           <Link href="/blog" className="text-sm text-white/70 hover:text-white">
             ← Blog
           </Link>
-          <p className="mt-6 font-display text-lg font-semibold uppercase tracking-widest text-orange">Behind the scenes · 8 min read</p>
+          <p className="mt-6 font-display text-lg font-semibold uppercase tracking-widest text-orange">How we work · 7 min read</p>
           <h1 className="mt-2 font-display text-5xl font-bold uppercase leading-[0.95] sm:text-6xl">
-            How we find roofing companies that need us
+            From first search to booked inspection
           </h1>
           <p className="mt-5 text-xl leading-relaxed text-white/85">
-            Our conversion funnel, the number we expect at every stage, and the 5 keywords roofing owners type when they look for help with
-            Google. We publish it because we tell clients to measure everything. We should show our own numbers too.
+            We tell roofers to measure every step between a click and a signed job. So here are our own steps, in the open: where roofing
+            companies find us, the conversion rate we aim for at each stage, and the searches they type when they need help with Google.
           </p>
           <nav aria-label="In this article" className="mt-8 flex flex-wrap gap-2 text-sm">
             {[
               ["#funnel", "1. The funnel"],
-              ["#targets", "2. Targets per stage"],
-              ["#keywords", "3. The 5 keywords"],
+              ["#targets", "2. Our numbers"],
+              ["#keywords", "3. What roofers search"],
+              ["#test", "4. Our website test"],
             ].map(([href, label]) => (
               <a key={href} href={href} className="rounded-full border border-white/25 px-3 py-1 text-white/85 hover:border-orange hover:text-white">
                 {label}
@@ -244,12 +243,15 @@ export default function FunnelArticle() {
         {/* Who */}
         <div className="pt-12">
           <div className="rounded-xl border border-navy/10 bg-white p-6">
-            <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">Who we are looking for</p>
+            <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">The owner we build for</p>
             <p className="mt-2 text-lg text-ink/85">
-              <strong className="text-navy">Mike</strong>, our persona: 47, owns a 7-person residential roofing company in Dallas. Most of his work
-              comes from referrals, Google brings maybe a quarter. He reads everything on his phone between two jobs, trusts other roofers more
-              than agencies, and was burned once: a year of click reports and a 12-month contract. His wife signs off on anything above a few
-              hundred dollars a month.
+              A residential roofing owner who still does the estimates, checks the crews and answers most calls himself. Most of his work comes
+              from referrals, and Google brings maybe a quarter of it. He reads everything on his phone between two jobs and trusts other roofers
+              more than any agency. Often he has been burned once already: a year of click reports and a 12-month contract. Any spend above a few
+              hundred dollars a month gets decided with whoever runs the books.
+            </p>
+            <p className="mt-3 text-muted">
+              Larger companies with several crews and markets hire us for the same reasons. The funnel below is the same for them.
             </p>
           </div>
         </div>
@@ -259,9 +261,9 @@ export default function FunnelArticle() {
           The funnel
         </H2>
         <P>
-          Mike doesn&apos;t trust agency ads, and he doesn&apos;t make business decisions on TikTok. So we don&apos;t start with paid ads. We go where
-          he already is (roofers&apos; Facebook groups, and Google when he has a question) and send everyone to one single action: a free
-          15-minute Google Ads audit.
+          Roofing owners don&apos;t trust agency ads, and they don&apos;t make business decisions on TikTok. So we don&apos;t start with paid ads. We go
+          where they already are, roofers&apos; Facebook groups, and Google when they have a question, and we send everyone to one single action: a
+          free 15-minute Google Ads audit.
         </P>
 
         <ol className="mt-8 space-y-3" aria-label="VileroMedia conversion funnel, 7 stages">
@@ -281,53 +283,50 @@ export default function FunnelArticle() {
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
           <div className="rounded-xl bg-navy p-6 text-white">
             <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">Path A · where roofers talk</p>
-            <p className="mt-2 font-display text-2xl font-bold uppercase leading-tight">
-              Facebook group → our page → website → audit → call
-            </p>
-            <p className="mt-3 text-white/75">Our main path. Earned trust first, selling only on our own page, only when he clicks.</p>
+            <p className="mt-2 font-display text-2xl font-bold uppercase leading-tight">Facebook group → our page → website → audit → call</p>
+            <p className="mt-3 text-white/75">Our main path. Trust first, earned in the groups. Selling happens only on our own page, and only when he clicks.</p>
           </div>
           <div className="rounded-xl bg-navy-2 p-6 text-white">
             <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">Path B · search</p>
-            <p className="mt-2 font-display text-2xl font-bold uppercase leading-tight">Google or ChatGPT → article → audit → call</p>
-            <p className="mt-3 text-white/75">For owners with a question right now. This is why we write guides like this one.</p>
+            <p className="mt-2 font-display text-2xl font-bold uppercase leading-tight">Google or ChatGPT → guide → audit → call</p>
+            <p className="mt-3 text-white/75">For owners with a question right now. That&apos;s why we write practical guides.</p>
           </div>
         </div>
 
-        <h3 className="mt-10 font-display text-2xl font-bold uppercase text-navy">What we chose not to do</h3>
+        <h3 className="mt-10 font-display text-2xl font-bold uppercase text-navy">What we deliberately don&apos;t do</h3>
         <ul className="mt-3 list-disc space-y-2 pl-6 text-lg text-ink/85">
           <li>
-            <strong>No cold paid ads at launch.</strong> We have no case studies yet, and one more agency ad won&apos;t convince someone who already
-            paid for clicks that never became calls.
+            <strong>No cold ads selling ourselves.</strong> One more agency ad won&apos;t convince an owner who already paid for clicks that never
+            became calls.
           </li>
           <li>
-            <strong>No TikTok.</strong> One competitor posts there every day and has 5 followers.
+            <strong>No TikTok for prospects.</strong> It&apos;s full of crews and job-site videos, not owners making business decisions.
           </li>
           <li>
-            <strong>No LinkedIn for prospects.</strong> Small roofers barely use it. We keep it for our own credibility.
+            <strong>No LinkedIn prospecting.</strong> Roofing owners barely use it.
           </li>
           <li>
-            <strong>No links in Facebook groups.</strong> Answers only. “Another agency spamming my group” is the fastest way to lose them.
+            <strong>No links in Facebook groups.</strong> Answers only. Nobody wants another agency spamming their group.
           </li>
         </ul>
 
         {/* PART 2 */}
         <H2 id="targets" part="Part 2">
-          Realistic targets at each stage
+          The numbers we aim for
         </H2>
         <P>
-          We set targets for our first quarter, 2 November 2026 to 31 January 2027. That&apos;s the slow season between storms, when owners have time
-          to plan next year&apos;s marketing. Each number below sits next to the course benchmark it&apos;s based on, so you can see where we are more
-          or less optimistic.
+          Every stage has a target, set next to the usual benchmark for that step, so you can see where we expect to do better and why. We review
+          them every month against real form data and the “How did you hear about us?” answers.
         </P>
 
         <div className="mt-6 overflow-x-auto rounded-xl border border-navy/10 bg-white">
-          <table className="w-full min-w-[640px] text-left text-sm">
+          <table className="w-full min-w-[620px] text-left text-sm">
             <thead className="bg-navy text-white">
               <tr>
                 <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Stage</th>
                 <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Typical benchmark</th>
-                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Our target (13 weeks)</th>
-                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Where it comes from</th>
+                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Our target</th>
+                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Why</th>
               </tr>
             </thead>
             <tbody>
@@ -335,52 +334,33 @@ export default function FunnelArticle() {
                 <tr key={t.step} className="border-t border-navy/10 align-top">
                   <th scope="row" className="p-3 font-semibold text-navy">{t.step}</th>
                   <td className="p-3 text-muted">{t.benchmark}</td>
-                  <td className="p-3 font-display text-lg font-bold text-green">{t.ours}</td>
-                  <td className="p-3 text-muted">{t.source}</td>
+                  <td className="p-3 font-display text-xl font-bold text-green">{t.ours}</td>
+                  <td className="p-3 text-muted">{t.why}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <Note>Course benchmarks: visit → lead 1–3%, lead → MQL about 30%, landing page conversion 2–5%, cold email reply 1–5%.</Note>
+        <Note>Typical digital marketing benchmarks: visit → lead 1–3%, lead → qualified lead about 30%, landing page conversion 2–5%.</Note>
 
         <div className="mt-8 rounded-xl bg-navy p-6 text-white sm:p-8">
-          <p className="font-display text-sm font-semibold uppercase tracking-widest text-white/60">The quarter in one line</p>
+          <p className="font-display text-sm font-semibold uppercase tracking-widest text-white/60">What that means, per 100 owners who visit from the groups</p>
           <p className="mt-3 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl">
-            200 visits → <span className="text-orange">10 audit requests</span> → 5 audit calls → <span className="text-green-light">2 clients</span>
+            100 visits → <span className="text-orange">7 audit requests</span> → 3–4 audits → <span className="text-green-light">about 1 new client</span>
           </p>
-          <dl className="mt-6 grid gap-4 sm:grid-cols-3">
-            {[
-              ["$14,400", "revenue: 2 clients × $1,200 × 6 months average stay"],
-              ["$2,225", "cost of our social plan for the quarter (time, tools, one sponsored podcast slot)"],
-              ["≈ 5.5x", "return on the social plan alone. Search visits are a bonus on top"],
-            ].map(([n, l]) => (
-              <div key={l}>
-                <dt className="font-display text-4xl font-bold text-green-light">{n}</dt>
-                <dd className="mt-1 text-sm text-white/70">{l}</dd>
-              </div>
-            ))}
-          </dl>
-          <p className="mt-6 text-xs text-white/50">
-            Fee, average stay and close rate are assumptions from our group plan. Main risk: our fee. If clients only accept the $600 Starter plan,
-            2 clients bring $7,200 over 6 months, a return of about 2.2x. Still positive.
+          <p className="mt-4 text-white/75">
+            From search, the same 100 visits give about 3 audit requests. That&apos;s why the groups come first, and why every guide ends with the
+            audit.
           </p>
         </div>
 
-        <P>
-          Why about 7% for social visits when the course average is 1–3%? These visitors arrive warm: they already saw us answer a question
-          in their group. Search visitors are colder, so we stay at the top of the course range, 3%. We will check both numbers after the first
-          month and adjust.
-        </P>
-
         {/* PART 3 */}
         <H2 id="keywords" part="Part 3">
-          The 5 keywords roofers type
+          What roofers type into Google
         </H2>
         <P>
-          Path B starts with a search. To find the right words, we asked an AI to think like our persona: “Act as Mike, owner of a 7-person
-          residential roofing company in Dallas. What would you type into Google, or ask an AI, when looking for help getting more calls from
-          Google? Give me 20 queries, from problem-aware to ready-to-buy.” Here are the 20 it gave us:
+          Path B starts with a search. We wrote down the 20 questions roofing owners actually ask when the phone is too quiet, from “why
+          isn&apos;t my phone ringing” to “roofing marketing agency no contract”, and sorted them by how close the owner is to hiring someone.
         </P>
 
         <div className="mt-6 grid gap-4 md:grid-cols-3">
@@ -398,9 +378,9 @@ export default function FunnelArticle() {
             </div>
           ))}
         </div>
-        <Note>Highlighted: the 5 we kept.</Note>
+        <Note>Highlighted: the 5 we build our pages around.</Note>
 
-        <P>We kept 5, at least one per stage of the funnel, each tied to a page that answers it:</P>
+        <P>We focus on 5 of them, at least one per stage, each answered by a specific page:</P>
         <ol className="mt-6 space-y-4">
           {keywords.map((k, i) => (
             <li key={k.kw} className="rounded-xl border border-navy/10 bg-white p-5">
@@ -417,19 +397,101 @@ export default function FunnelArticle() {
           ))}
         </ol>
         <P>
-          Next step: check monthly search volume and difficulty for these 5 in Ubersuggest and Semrush, and swap any keyword nobody searches for
-          a close variant that people do search. Then we track, for each one, how many visits it brings and how many audit requests follow.
+          For each keyword we track search volume, the visits it brings and how many audit requests follow, and we swap any keyword that brings
+          traffic but no audits.
         </P>
+
+        {/* PART 4 */}
+        <H2 id="test" part="Part 4">
+          We tested our own website first
+        </H2>
+        <P>
+          Before sending anyone to the site, we had it reviewed by 100 simulated roofing-owner profiles: different cities, company sizes, types of
+          work, past agency experience, phone or laptop, patient or not. Each profile read the site and scored how likely they were to book the
+          audit. We ran it twice, before and after our changes. They are simulations, not real customers, so the numbers tell us what to fix,
+          not how many people will book.
+        </P>
+
+        <div className="mt-6 overflow-x-auto rounded-xl border border-navy/10 bg-white">
+          <table className="w-full min-w-[480px] text-left text-sm">
+            <thead className="bg-navy text-white">
+              <tr>
+                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">100 profiles</th>
+                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">First version</th>
+                <th scope="col" className="p-3 font-display text-base uppercase tracking-wide">Current site</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ["Would book the audit (7–10)", "11%", "16%"],
+                ["Maybe later (5–6)", "28%", "41%"],
+                ["Not interested (1–4)", "61%", "43%"],
+                ["Average score", "4.0 / 10", "4.8 / 10"],
+              ].map(([k, a, b]) => (
+                <tr key={k} className="border-t border-navy/10">
+                  <th scope="row" className="p-3 font-semibold text-navy">{k}</th>
+                  <td className="p-3 text-muted">{a}</td>
+                  <td className="p-3 font-display text-xl font-bold text-green">{b}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <Note>The second run also included larger companies ($3M+) and new-construction subcontractors, so the two runs are close but not identical.</Note>
+
+        <div className="mt-6 rounded-xl border border-navy/10 bg-white p-6">
+          <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">Current site · average score by past agency experience</p>
+          <ul className="mt-4 space-y-3">
+            {segments.map(([label, score, n, book]) => (
+              <li key={label}>
+                <div className="flex justify-between gap-4 text-sm">
+                  <span className="text-navy">{label}</span>
+                  <span className="shrink-0 font-semibold text-navy">
+                    {score} <span className="font-normal text-muted">(n={n}, {book} would book)</span>
+                  </span>
+                </div>
+                <div className="mt-1 h-3 rounded bg-paper" aria-hidden="true">
+                  <div className={`h-3 rounded ${score >= 5 ? "bg-orange" : "bg-navy/40"}`} style={{ width: `${(score / 10) * 100}%` }} />
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl bg-navy p-6 text-white">
+            <h3 className="font-display text-2xl font-bold uppercase">What works</h3>
+            <ul className="mt-3 space-y-2 text-white/85">
+              <li>✓ Month-to-month terms, liked by 37 profiles</li>
+              <li>✓ Prices on the page (31)</li>
+              <li>✓ “You own your Google Ads account” (30)</li>
+              <li>✓ The budget guide: 22 of the 33 profiles who opened the blog</li>
+              <li>✓ “Your first 30 days” (18). Owners who had never hired an agency went from 0 to 5 bookings</li>
+              <li>✓ Storm and insurance roofers: 8 would book, the most of any type of work</li>
+            </ul>
+          </div>
+          <div className="rounded-xl border border-navy/10 bg-white p-6">
+            <h3 className="font-display text-2xl font-bold uppercase text-navy">What we changed or are working on</h3>
+            <ul className="mt-3 space-y-2 text-ink/85">
+              <li>→ Real client results (63 asked). We only publish them with written permission, so they come with our first clients.</li>
+              <li>→ A direct phone line and a company email domain (30 and 36). Coming; email replies stay under 24 hours meanwhile.</li>
+              <li>→ Larger companies felt it wasn&apos;t for them. We now cover several markets and crews with a custom plan.</li>
+              <li>→ Commercial and new construction: we now say clearly what we do and don&apos;t do.</li>
+              <li>→ A smaller budget example in our guide for companies starting out.</li>
+            </ul>
+          </div>
+        </div>
 
         {/* Wrap-up */}
         <div className="mt-16 rounded-xl bg-navy p-8 text-white">
           <h2 className="font-display text-3xl font-bold uppercase">The short version</h2>
           <ul className="mt-4 space-y-2 text-white/85">
-            <li>✓ Two entry paths, Facebook groups and search, one action: the free 15-minute audit.</li>
-            <li>✓ Our quarter target: 10 audit requests and 2 clients, with every number next to its benchmark.</li>
-            <li>✓ 5 keywords that cover the funnel, from “how to get more roofing leads” to “roofing marketing agency no contract”.</li>
+            <li>✓ Two ways in, roofers&apos; Facebook groups and search, and one next step: the free 15-minute audit.</li>
+            <li>✓ A target at every stage: 7% of warm visitors request an audit, half of them get one, 1 in 4 audits becomes a client.</li>
+            <li>✓ 5 searches we build pages around, from “how to get more roofing leads” to “roofing marketing agency no contract”.</li>
+            <li>✓ We tested the site before launch and fixed what held owners back.</li>
           </ul>
-          <p className="mt-6 text-white/80">Are you a roofer reading this? Then the funnel works. Here&apos;s the next step:</p>
+          <p className="mt-6 text-white/80">If you&apos;re a roofer reading this, you&apos;re at stage 3. Here&apos;s stage 4:</p>
           <Link
             href="/#contact"
             className="mt-4 inline-flex items-center justify-center rounded-md bg-orange px-6 py-4 font-display text-xl font-bold uppercase tracking-wide text-white hover:bg-orange-dark"
@@ -439,8 +501,9 @@ export default function FunnelArticle() {
         </div>
 
         <p className="mt-8 text-xs text-muted">
-          Sources: our group social media strategy (persona, competitor audit of 3 agencies checked on 13 October 2026, interview with a Texas
-          roofing owner, SMART goal and ROI) and course conversion benchmarks. Photo: Unsplash.
+          Sources: our review of 3 roofing marketing agencies (websites and social accounts, October 2026), an interview with a residential
+          roofing owner in Texas (shared with permission), typical digital marketing conversion benchmarks, and a simulated review of this
+          website by 100 roofing-owner profiles (October 2026). Photo: Unsplash.
         </p>
       </main>
 

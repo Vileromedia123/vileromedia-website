@@ -10,12 +10,12 @@ export type Post = {
 export const posts: Post[] = [
   {
     href: "/blog/our-conversion-funnel",
-    title: "How we find roofing companies that need us: our conversion funnel",
+    title: "From first search to booked inspection: how roofers find and hire us",
     excerpt:
-      "From a question in a roofers' Facebook group to a month-to-month client: every stage of our funnel, the conversion targets we set, and the 5 keywords roofers type when they look for help with Google.",
+      "Our funnel in the open: where roofing companies find us, the conversion rate we aim for at each step, the searches roofers type when they need help with Google, and what our website test changed.",
     date: "2026-10-20",
-    readTime: "8 min read",
-    tag: "Behind the scenes",
+    readTime: "7 min read",
+    tag: "How we work",
   },
   {
     href: "/guides/google-ads-budget-for-roofers",

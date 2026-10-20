@@ -143,8 +143,16 @@ const faqs = [
     a: "Maybe not. If referrals keep your crews busy all year, keep doing what works. Google matters when you want calls outside storm season or in a new area. The free audit tells you which side you're on, even if the answer is “not yet”.",
   },
   {
+    q: "We run several crews in several markets. Is this for us?",
+    a: "Yes. Growth covers up to 3 service areas, and we build a custom plan for more markets after the audit, with one campaign per market and one report for the whole company.",
+  },
+  {
+    q: "Do you work with commercial roofing or new construction?",
+    a: "Our focus is residential roofing: repair, replacement and storm work. Light commercial jobs can run in the same campaigns, and we'll tell you in the audit if that makes sense. If your work comes mostly from builders and general contractors, Google Ads to homeowners is usually not the right channel, and we'll say so.",
+  },
+  {
     q: "Where are you, and when can I reach you?",
-    a: `We're a remote team working on US hours: ${HOURS}. We answer emails and form requests within 24 hours on weekdays.`,
+    a: `We're a remote team serving roofers across the US, working on US hours: ${HOURS}. We answer emails and form requests within 24 hours on weekdays.`,
   },
   {
     q: "Do you promise a number of leads?",
@@ -194,7 +202,7 @@ export default function Home() {
     url: SITE_URL,
     sameAs: socials.map((x) => x.href),
     description:
-      "Google Ads, Local Services Ads and Local SEO for small residential roofing companies in the US.",
+      "Google Ads, Local Services Ads and Local SEO for residential roofing companies in the US.",
     areaServed: "US",
     priceRange: "$600–$1,200 per month",
     email: EMAIL,
@@ -315,8 +323,8 @@ export default function Home() {
             <div>
               <p id="mission-title" className="font-display text-lg font-semibold uppercase tracking-widest text-orange">Our mission</p>
               <blockquote className="mt-3 font-display text-3xl font-bold uppercase leading-tight text-navy sm:text-4xl">
-                “We help small residential roofing companies in the US get more calls and booked inspections from Google, month-to-month and
-                with clear pricing.”
+                “We help residential roofing companies in the US get more calls and booked inspections from Google, month-to-month and with
+                clear pricing.”
               </blockquote>
             </div>
             <dl className="grid grid-cols-3 gap-4 text-center">
@@ -428,7 +436,8 @@ export default function Home() {
                   ))}
                 </ul>
                 <p className="mt-auto pt-6 text-sm text-white/60">
-                  How much should you spend on ads? We&apos;ll give you a number for your area in the audit, before you sign anything.
+                  How much should you spend on ads? We&apos;ll give you a number for your area in the audit, before you sign anything. More than 3
+                  service areas or several crews? We quote a custom plan after the audit.
                 </p>
               </article>
             </div>
@@ -439,7 +448,7 @@ export default function Home() {
         <section id="work" className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
           <SectionTitle eyebrow="Our work" title="What you actually get" />
           <p className="mt-4 max-w-2xl text-lg text-muted">
-            We&apos;re a new agency, so we won&apos;t show you made-up client results. Here is exactly what we deliver. Real case studies go here, with our clients&apos; permission, as soon as we have them.
+            We never publish made-up results. Client numbers only appear here with the client&apos;s written permission. Until then, here is exactly what you get from us, every month.
           </p>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {work.map((w) => (
@@ -517,8 +526,8 @@ export default function Home() {
                     never found out how many roofs it actually brought in. He was stuck in a 12-month contract and just waited for it to end.
                   </p>
                   <p className="font-semibold text-navy">
-                    Nobody was building for the smaller roofer, the owner who still does the estimates himself and answers the phone between two
-                    jobs. So we built the agency we would want to hire.
+                    Most agencies build for the biggest players. We built VileroMedia around the owner who still does estimates himself and
+                    answers the phone between two jobs, with an offer that works just as well once you run several crews and several markets.
                   </p>
                 </div>
               </div>
@@ -566,7 +575,8 @@ export default function Home() {
 
             <h3 className="mt-16 font-display text-3xl font-bold uppercase text-navy">The team</h3>
             <p className="mt-2 max-w-2xl text-muted">
-              Six people, one niche: residential roofing in the US. We work remotely, on US hours ({HOURS}), and reply within 24 hours on weekdays.
+              One niche, residential roofing in the US, and one account lead per client. We work remotely across the US, on US hours ({HOURS}), and
+              reply within 24 hours on weekdays.
             </p>
             <ul className="mt-8 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-6">
               {team.map((m) => (

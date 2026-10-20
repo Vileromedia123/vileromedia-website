@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "VileroMedia | Google Ads for Residential Roofers",
   description:
-    "Google Ads, Local Services Ads and Local SEO for small residential roofing companies in the US. Prices on the page. Month-to-month. Reports in calls and booked inspections.",
+    "Google Ads, Local Services Ads and Local SEO for residential roofing companies in the US. Prices on the page. Month-to-month. Reports in calls and booked inspections.",
   openGraph: {
     title: "VileroMedia | More roofing calls from Google",
     description:
