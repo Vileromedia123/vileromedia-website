@@ -163,7 +163,7 @@ const keywords = [
   {
     kw: "how to get more roofing leads",
     stage: "Problem-aware",
-    why: "The question Mike actually asks between two jobs, before he even thinks about an agency. Widest audience, and the entry point for owners who have never hired one, our weakest group in testing.",
+    why: "The question Mike actually asks between two jobs, before he even thinks about an agency. Widest audience, and the entry point for owners who have never hired an agency.",
     page: "New article: “How small roofers get more calls outside storm season” (next on our list)",
   },
   {
@@ -181,7 +181,7 @@ const keywords = [
   {
     kw: "roofing marketing agency no contract",
     stage: "Ready to buy",
-    why: "Owners burned by a yearly contract rated our site highest in testing. This query is that exact pain, typed into Google.",
+    why: "Owners burned by a yearly contract are exactly who we built the offer for. This query is that pain, typed into Google.",
     page: "Home page, Pricing and FAQ (“Is there a contract?”)",
   },
   {
@@ -367,68 +367,10 @@ export default function FunnelArticle() {
           </p>
         </div>
 
-        <h3 className="mt-12 font-display text-2xl font-bold uppercase text-navy">Stress test: 100 simulated roofing owners</h3>
         <P>
-          Before launch, we ran our website past 100 AI-simulated roofing owners matching our target (city, company size, how they get work,
-          past agency experience). They are simulated, not real people, so the numbers show which problems hit the most kinds of owner, not a
-          real conversion rate.
-        </P>
-        <div className="mt-6 grid grid-cols-3 gap-3 text-center">
-          {[
-            ["11%", "would book the audit", "bg-green text-white"],
-            ["28%", "maybe later", "bg-navy-2 text-white"],
-            ["61%", "not interested", "bg-white text-navy border border-navy/10"],
-          ].map(([n, l, cls]) => (
-            <div key={l} className={`rounded-xl p-4 ${cls}`}>
-              <p className="font-display text-4xl font-bold">{n}</p>
-              <p className="mt-1 text-sm opacity-80">{l}</p>
-            </div>
-          ))}
-        </div>
-        <Note>Average score 4.0 out of 10. A score of 7 or more means the owner would book the audit.</Note>
-
-        <div className="mt-6 rounded-xl border border-navy/10 bg-white p-6">
-          <p className="font-display text-sm font-semibold uppercase tracking-widest text-orange">Average score by past agency experience</p>
-          <ul className="mt-4 space-y-3">
-            {[
-              ["Burned by a yearly contract", 5.1, 19, true],
-              ["Burned by click-only reports", 4.6, 20, true],
-              ["Ran Google Ads himself", 4.6, 5, false],
-              ["Buys shared leads (Angi etc.)", 3.5, 13, false],
-              ["Currently with an agency", 3.3, 9, false],
-              ["Never hired an agency", 3.2, 34, false],
-            ].map(([label, score, n, hi]) => (
-              <li key={label as string}>
-                <div className="flex justify-between text-sm">
-                  <span className="text-navy">{label as string}</span>
-                  <span className="font-semibold text-navy">
-                    {score as number} <span className="font-normal text-muted">(n={n as number})</span>
-                  </span>
-                </div>
-                <div className="mt-1 h-3 rounded bg-paper" aria-hidden="true">
-                  <div className={`h-3 rounded ${hi ? "bg-orange" : "bg-navy/40"}`} style={{ width: `${((score as number) / 10) * 100}%` }} />
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <P>Two things changed our funnel:</P>
-        <ul className="mt-3 list-disc space-y-2 pl-6 text-lg text-ink/85">
-          <li>
-            <strong>Our message hits the right people.</strong> 9 of the 11 owners who would book had been burned by a yearly contract or by
-            click-only reports. That&apos;s exactly who our real interview described.
-          </li>
-          <li>
-            <strong>Owners who never hired an agency didn&apos;t convert at all</strong> (0 of 34, the biggest group). Nothing told them why they
-            would need one. So we added “Your first 30 days” and an FAQ answer, “Do I even need an agency?”, and we are planning a problem-aware
-            article for them (see keyword 1 below).
-          </li>
-        </ul>
-        <P>
-          We also fixed the trust gaps the test found: real example numbers in our sample report (labelled as an example), a source for every
-          figure, faces on the team, and “Cancel anytime, 30 days&apos; notice” up front. That&apos;s why we use about 7% for warm social traffic, below
-          the 11% simulated intent but above the 1–3% average for cold visits.
+          Why about 7% for social visits when the course average is 1–3%? These visitors arrive warm: they already saw us answer a question
+          in their group. Search visitors are colder, so we stay at the top of the course range, 3%. We will check both numbers after the first
+          month and adjust.
         </P>
 
         {/* PART 3 */}
@@ -498,8 +440,7 @@ export default function FunnelArticle() {
 
         <p className="mt-8 text-xs text-muted">
           Sources: our group social media strategy (persona, competitor audit of 3 agencies checked on 13 October 2026, interview with a Texas
-          roofing owner, SMART goal and ROI), course conversion benchmarks, and a simulated review of our website by 100 AI-generated roofing
-          owners (20 October 2026). Photo: Unsplash.
+          roofing owner, SMART goal and ROI) and course conversion benchmarks. Photo: Unsplash.
         </p>
       </main>
 
