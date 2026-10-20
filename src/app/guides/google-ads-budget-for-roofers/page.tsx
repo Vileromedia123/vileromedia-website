@@ -181,7 +181,7 @@ export default function Guide() {
       </main>
 
       <footer className="bg-navy py-8 text-sm text-white/50">
-        <p className="mx-auto max-w-3xl px-4 sm:px-6">© {new Date().getFullYear()} VileroMedia. Student project, TBS Education.</p>
+        <p className="mx-auto max-w-3xl px-4 sm:px-6">© {new Date().getFullYear()} VileroMedia. All rights reserved.</p>
       </footer>
     </>
   );

@@ -1,6 +1,7 @@
 "use server";
 
 import { getSupabase } from "@/lib/supabase";
+import { EMAIL } from "@/lib/site";
 
 export type LeadState = {
   status: "idle" | "success" | "error";
@@ -40,7 +41,7 @@ export async function submitLead(
   if (!supabase) {
     return {
       status: "error",
-      message: "Our form isn't connected yet. Email us at hello@vileromedia.com and we'll get back to you.",
+      message: `Our form isn't connected yet. Email us at ${EMAIL} and we'll get back to you.`,
     };
   }
 
@@ -57,7 +58,7 @@ export async function submitLead(
     console.error("Supabase insert failed:", error.message);
     return {
       status: "error",
-      message: "Something went wrong on our side. Email us at hello@vileromedia.com.",
+      message: `Something went wrong on our side. Email us at ${EMAIL}.`,
     };
   }
 

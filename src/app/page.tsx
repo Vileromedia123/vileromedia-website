@@ -1,7 +1,7 @@
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 import Socials, { socials } from "@/components/Socials";
-import { EMAIL, HOURS, PHONE, SITE_URL } from "@/lib/site";
+import { EMAIL, HOURS, SITE_URL } from "@/lib/site";
 
 // Free Unsplash photos (Unsplash License). Swap for our own crew photos when we have them.
 const photo = (id: string) => `https://images.unsplash.com/${id}?auto=format&fit=crop&q=70`;
@@ -192,7 +192,6 @@ export default function Home() {
     "@type": "ProfessionalService",
     name: "VileroMedia",
     url: SITE_URL,
-    ...(PHONE ? { telephone: PHONE.tel } : {}),
     sameAs: socials.map((x) => x.href),
     description:
       "Google Ads, Local Services Ads and Local SEO for small residential roofing companies in the US.",
@@ -224,22 +223,12 @@ export default function Home() {
               ))}
             </ul>
           </nav>
-          <div className="flex items-center gap-2">
-            {PHONE && (
-              <a
-                href={`tel:${PHONE.tel}`}
-                className="hidden rounded-md border border-white/30 px-3 py-2 font-display text-lg font-bold uppercase tracking-wide text-white hover:border-white sm:inline-flex"
-              >
-                Call {PHONE.display}
-              </a>
-            )}
-            <a
-              href="#contact"
-              className="rounded-md bg-orange px-4 py-2 font-display text-lg font-bold uppercase tracking-wide text-white hover:bg-orange-dark"
-            >
-              Free audit
-            </a>
-          </div>
+          <a
+            href="#contact"
+            className="rounded-md bg-orange px-4 py-2 font-display text-lg font-bold uppercase tracking-wide text-white hover:bg-orange-dark"
+          >
+            Free audit
+          </a>
         </div>
       </header>
 
@@ -279,10 +268,10 @@ export default function Home() {
                   Get a free 15-min Google Ads audit
                 </a>
                 <a
-                  href={PHONE ? `tel:${PHONE.tel}` : "#about"}
+                  href="#about"
                   className="inline-flex items-center justify-center rounded-md border-2 border-white/30 px-6 py-4 font-display text-xl font-bold uppercase tracking-wide text-white hover:border-white"
                 >
-                  {PHONE ? `Call ${PHONE.display}` : "Who we are"}
+                  Who we are
                 </a>
               </div>
               <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
@@ -637,15 +626,7 @@ export default function Home() {
                 ))}
               </ul>
               <div className="mt-8 rounded-lg border border-white/15 p-5">
-                {PHONE && (
-                  <a
-                    href={`tel:${PHONE.tel}`}
-                    className="flex min-h-11 items-center justify-center rounded-md bg-white px-4 py-3 font-display text-xl font-bold uppercase tracking-wide text-navy hover:bg-paper"
-                  >
-                    Rather talk? Call {PHONE.display}
-                  </a>
-                )}
-                <p className={`text-sm text-white/70 ${PHONE ? "mt-3" : ""}`}>
+                <p className="text-sm text-white/70">
                   We answer {HOURS}. Email:{" "}
                   <a href={`mailto:${EMAIL}`} className="underline hover:text-white">
                     {EMAIL}
@@ -664,7 +645,7 @@ export default function Home() {
             <Logo />
             <p className="mt-4 max-w-sm">Google Ads, LSA and Local SEO for US residential roofers. Month-to-month. Cancel anytime.</p>
             <p className="mt-3">
-              <a href="mailto:hello@vileromedia.com" className="hover:text-white">hello@vileromedia.com</a>
+              <a href={`mailto:${EMAIL}`} className="hover:text-white">{EMAIL}</a>
             </p>
           </div>
           <div className="md:justify-self-end">
@@ -675,7 +656,7 @@ export default function Home() {
           </div>
         </div>
         <p className="mx-auto mt-6 max-w-6xl px-4 text-xs text-white/40 sm:px-6">
-          © {new Date().getFullYear()} VileroMedia. Student project, TBS Education.
+          © {new Date().getFullYear()} VileroMedia. All rights reserved.
         </p>
       </footer>
     </>
