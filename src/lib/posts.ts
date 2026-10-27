@@ -9,6 +9,15 @@ export type Post = {
 
 export const posts: Post[] = [
   {
+    href: "/blog/how-to-get-more-qualified-roofing-leads",
+    title: "How to get more qualified roofing leads (not just clicks)",
+    excerpt:
+      "Win local search, make it easy to say yes, use paid ads with limits and track every enquiry to a signed job. Plus what to avoid when hiring an agency.",
+    date: "2026-10-27",
+    readTime: "7 min read",
+    tag: "Guide",
+  },
+  {
     href: "/blog/our-conversion-funnel",
     title: "From first search to booked inspection: how roofers find and hire us",
     excerpt:
