@@ -38,7 +38,7 @@ export function SiteFooter() {
               {EMAIL}
             </a>
           </p>
-          <p className="mt-2 text-xs text-white/40">© {new Date().getFullYear()} VileroMedia. All rights reserved.</p>
+          <p className="mt-2 text-xs text-white/40">© {new Date().getFullYear()} VileroMedia. All rights reserved. Made with love in Barcelona.</p>
         </div>
         <Socials />
       </div>
