@@ -708,7 +708,7 @@ export default function Home() {
           </div>
         </div>
         <p className="mx-auto mt-6 max-w-6xl px-4 text-xs text-white/40 sm:px-6">
-          © {new Date().getFullYear()} VileroMedia. All rights reserved.
+          © {new Date().getFullYear()} VileroMedia. All rights reserved. Made with love in Barcelona.
         </p>
       </footer>
     </>
